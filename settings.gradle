@@ -1,3 +1,5 @@
 rootProject.name = 'simple-servers'
 include 'jetty'
+include 'undertow'
+include 'javase'
 
