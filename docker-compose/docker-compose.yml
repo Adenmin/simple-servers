@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  jetty:
+    image: jetty-dev:latest
+    ports:
+      - 8081:8081
+  javase:
+    image: javase-dev:latest
+    ports:
+      - 8082:8082
+  udertow:
+    image: undertow-dev:latest
+    ports:
+      - 8083:8083

@@ -1,22 +1,27 @@
-
 package org.example.servers.undertow;
 
 import io.undertow.Undertow;
 import io.undertow.server.handlers.BlockingHandler;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
-    public static void main(String[] args){
+public class App {
+    public static void main(String[] args) {
         undertow();
     }
 
     private static void undertow() {
-        Undertow server = Undertow.builder()
-                .addHttpListener(8080, "localhost")
-                .setHandler(new BlockingHandler(new UndertowHttpHandler())).build();
-        server.start();
+        Undertow server = null;
+        try {
+            server = Undertow.builder()
+                    .addHttpListener(8083, InetAddress.getLocalHost().getHostAddress())
+                    .setHandler(new BlockingHandler(new UndertowHttpHandler())).build();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        if (server != null) {
+            server.start();
+        }
     }
 }

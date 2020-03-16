@@ -9,7 +9,7 @@ import java.io.OutputStream;
 public class SunHttpHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange t) throws IOException {
-        String response = "This is the response";
+        String response = "This is JavaSE!";
         t.getResponseHeaders().set("Content-Type", "text/plain");
         t.sendResponseHeaders(200, response.length());
         OutputStream os = t.getResponseBody();

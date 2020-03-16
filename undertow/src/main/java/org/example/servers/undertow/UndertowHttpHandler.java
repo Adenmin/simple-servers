@@ -7,9 +7,9 @@ import io.undertow.util.Headers;
 
 public class UndertowHttpHandler implements HttpHandler {
     @Override
-    public void handleRequest(HttpServerExchange exchange){
+    public void handleRequest(HttpServerExchange exchange) {
         exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/plain");
         final Sender responseSender = exchange.getResponseSender();
-        responseSender.send("Hello World");
+        responseSender.send("This is Undertow!");
     }
 }
